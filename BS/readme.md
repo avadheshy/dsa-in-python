@@ -1,0 +1,3 @@
+- Binary Search is applied on monotonic array
+- In each iteration we find that only this part is revelance for us and second half is no longer required.
+- Binary Seach, Square root of number, Pivote element, Find element in mountain array, First accurance last occurance and count of an element,Seach is sorted and rotated array,Aggresive cow,painter and reading pages of books are some good problems. 

@@ -1,0 +1,47 @@
+class Graph:
+    def __init__(self,V) -> None:
+        """making empty graph and the size of the graph"""
+        self.adj={i:[] for i in range(V)}
+        self.v=V
+    def addEdge(self,u,v):
+        """adding edge u<-->v with weight s"""
+        self.adj[u].append(v)
+        self.adj[v].append(u)
+    def bfs(self,i,v,p):
+        v[i]=True
+        for j in self.adj[i]:
+            if not v[j]:
+                if self.bfs(j,v,i):
+                    return True
+            elif j!=p:
+                return True
+        return False
+            
+        
+        
+
+        
+    
+if __name__=='__main__':
+    gf=Graph(2)
+    # gf.addEdge(0, 7)
+    gf.addEdge(0, 1)
+    # gf.addEdge(1, 2)
+    # gf.addEdge(1, 7)
+    # gf.addEdge(2, 3)
+    # gf.addEdge(2, 8)
+    # gf.addEdge(2, 5)
+    # gf.addEdge(3, 4)
+    # gf.addEdge(3, 5)
+    # gf.addEdge(4, 5)
+    # gf.addEdge(5, 6)
+    # gf.addEdge(6, 7)
+    # gf.addEdge(6, 8)
+    # gf.addEdge(7, 8)
+    visited=[False for i in range(gf.v)]
+    for i in range(gf.v):
+        if not visited[i]:
+            if gf.bfs(i,visited,-1):
+                print('there is a cycle in the graph')
+                exit()
+    print('no cycle present')
